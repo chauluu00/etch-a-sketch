@@ -37,12 +37,16 @@ resizeButton.addEventListener("click", getUserInput);
 
 //Popup asking for the number of squares per side
 function getUserInput() {
-    input = prompt("Please enter the number of squares");
-    if (input > 0 && input <= 100){
+    let newInput = prompt("Please enter the number of squares");
+    //If newInput is valid, update input with newInput
+    if (newInput !== null && newInput !== "" && newInput >0 && newInput <=100){
+        input = newInput;
         sketchpad.textContent = "";
         buildGrid();
-    } else {
+        console.log(input);
+    } else { // If the user cancels,enters nothing, or enters invalid values, do not update input
         alert("Your input is invalid. Please enter a number between 1 and 100.");
+        console.log(input);
     }
     gridSize.textContent = `Current grid size: ${input} x ${input}`;
 };
