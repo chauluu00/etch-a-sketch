@@ -10,8 +10,7 @@ buildGrid();
 function buildGrid(){
     for (let i = 0; i < input**2; i++){
         const div = document.createElement("div");
-        div.style.width = sketchpad.clientWidth / input + "px";
-        div.style.height = sketchpad.clientHeight / input + "px";
+        div.style.flexBasis = `calc(100%/${input})`;
         sketchpad.appendChild(div);
     }
 
