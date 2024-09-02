@@ -41,11 +41,10 @@ function getUserInput() {
     if (input > 0 && input <= 100){
         sketchpad.textContent = "";
         buildGrid();
-        gridSize.textContent = `Current grid size: ${input} x ${input}`;
     } else {
         alert("Your input is invalid. Please enter a number between 1 and 100.");
-        gridSize.textContent = `Current grid size: ${previousInput} x ${previousInput}`;
     }
+    gridSize.textContent = `Current grid size: ${input} x ${input}`;
 };
 
 //Add different ink types
