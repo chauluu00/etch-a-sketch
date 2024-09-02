@@ -1,6 +1,7 @@
 const sketchpad = document.querySelector("#sketchpad");
 const gridSize = document.querySelector("p");
 let input = 16
+let previousInput = input;
 //Display grid size
 gridSize.textContent = `Current grid size: ${input} x ${input}`;
 buildGrid();
@@ -36,18 +37,15 @@ resizeButton.addEventListener("click", getUserInput);
 
 //Popup asking for the number of squares per side
 function getUserInput() {
-    let newInput = prompt("Please enter the number of squares");
-    //If newInput is valid, update input with newInput
-    if (newInput !== null && newInput !== "" && newInput >0 && newInput <=100){
-        input = newInput;
+    input = prompt("Please enter the number of squares");
+    if (input > 0 && input <= 100){
         sketchpad.textContent = "";
         buildGrid();
-        console.log(input);
-    } else { // If the user cancels,enters nothing, or enters invalid values, do not update input
+        gridSize.textContent = `Current grid size: ${input} x ${input}`;
+    } else {
         alert("Your input is invalid. Please enter a number between 1 and 100.");
-        console.log(input);
+        gridSize.textContent = `Current grid size: ${previousInput} x ${previousInput}`;
     }
-    gridSize.textContent = `Current grid size: ${input} x ${input}`;
 };
 
 //Add different ink types
