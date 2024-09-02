@@ -43,10 +43,8 @@ function getUserInput() {
         input = newInput;
         sketchpad.textContent = "";
         buildGrid();
-        console.log(input);
     } else { // If the user cancels,enters nothing, or enters invalid values, do not update input
         alert("Your input is invalid. Please enter a number between 1 and 100.");
-        console.log(input);
     }
     gridSize.textContent = `Current grid size: ${input} x ${input}`;
 };
